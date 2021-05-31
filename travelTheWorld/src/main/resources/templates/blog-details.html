@@ -11,15 +11,18 @@
 
 <div class = "container mt-5">
 
-    <p th:each="el : ${posts}" class="alert alert-info mt-2">
-        <h1 th:text="${el.title}"/>
-        <p th:text="${el.full_text}"/>
+    <th:block th:each="el : ${posts}">
+        <div class="alert alert-info mt-2">
+            <h1 th:text="${el.title}"/>
+            <p th:text="${el.full_text}"/>
 
-        <p> <b>Views</b><span th:text="${el.views}"/></p>
-        <a th:href=" '/blog/' + ${el.id}+'/edit'" class="btn btn-warning">Edit</a><br><br>
-    <form th:action="'/blog/'+${el.id}+'/remove'" method="post">
-        <button class="btn btn-warning" type="submit">Delete</button>
-    </form>
+            <p> <b>Views</b><span th:text="${el.views}"/></p>
+            <a th:href=" '/blog/' + ${el.id}+'/edit'" class="btn btn-warning">Edit</a><br><br>
+            <form th:action="'/blog/'+${el.id}+'/remove'" method="post">
+                <button class="btn btn-warning" type="submit">Delete</button>
+            </form>
+        </div>
+    </th:block>
 
     </div>
 </div>
